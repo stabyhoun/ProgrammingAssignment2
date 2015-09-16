@@ -41,7 +41,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## then the cachesolve should retrieve the inverse from teh cache.
 ##
 
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(x=matrix(), ...) {
         ## Return a matrix that is the inverse of 'x'
 
         imatrix = x$getimatrix()
@@ -51,8 +51,8 @@ cacheSolve <- function(x, ...) {
                 return(imatrix)
         }
         ## If the inverse has not already been calculated, do so and return the results
-        mat.data = x$get()
-        imatrix = solve(mat.data, ...)
+        matrix = x$get()
+        imatrix = solve(matrix, ...)
         x$setimatrix(imatrix)
         return(imatrix)
 }
